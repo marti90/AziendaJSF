@@ -19,11 +19,18 @@ public class MenuView {
         model = new DefaultMenuModel();
          
         //First submenu
-        DefaultSubMenu firstSubmenu = new DefaultSubMenu("Dynamic Submenu");
+        DefaultSubMenu firstSubmenu = new DefaultSubMenu("Registrazione");
          
-        DefaultMenuItem item = new DefaultMenuItem("External");
-        item.setUrl("http://www.primefaces.org");
+        DefaultMenuItem item = new DefaultMenuItem("Nuovo Cliente");
+        item.setOnclick("registrazioneCliente.xhtml");
         item.setIcon("ui-icon-home");
+        firstSubmenu.addElement(item);
+        
+        item = new DefaultMenuItem("Nuovo Dipendente");
+        item.setOnclick("registrazioneDipendente.xhtml");
+        item.setIcon("ui-icon-disk");
+        item.setCommand("#{menuView.save}");
+        item.setUpdate("messages");
         firstSubmenu.addElement(item);
          
         model.addElement(firstSubmenu);

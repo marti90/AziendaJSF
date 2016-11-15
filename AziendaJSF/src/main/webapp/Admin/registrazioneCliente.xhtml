@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="../layout/template.xhtml">
+    <ui:define name="content">
+
+    <h:head>
+       <title>Registrazione Cliente</title>
+       <h:outputStylesheet library="css" name="form.css"/>
+       <style>
+          .colori{
+          color:red;
+          }
+       </style>
+    </h:head>
+    
+    <h:body>
+    
+    <h1>Registrazione Nuovo Cliente</h1>
+    
+    <h:form styleClass="demo-form2">
+    
+               Nome:<h:inputText id="nome" 
+                    name="nome"
+                    value="#{c.nome}" 
+                    label="Nome"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="nome" styleClass="colori"/>
+                    <br/>
+                    
+            Cognome:<h:inputText id="cognome"
+                    name="cognome"
+                    value="#{c.cognome}"
+                    label="Cognome"
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    />
+                    <h:message for="cognome" styleClass="colori"/>
+                    <br/>
+                    
+           Username:<h:inputText id="username"
+                    name="username" 
+                    value="#{c.username}" 
+                    label="Username"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="username" styleClass="colori"/>
+                    <br/>
+                    
+           Password:<h:inputText id="password"
+                    name="password" 
+                    value="#{c.password}" 
+                    label="Password"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="password" styleClass="colori"/>
+                    <br/>
+                    
+    Ragione Sociale:<h:inputText id="ragioneSociale"
+                    name="ragioneSociale" 
+                    value="#{c.ragioneSociale}" 
+                    label="Ragione Sociale"
+                    
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="password" styleClass="colori"/>
+                    <br/>
+                    
+        Partita IVA:<h:inputText id="pIva"
+                    name="pIva"
+                    value="#{c.pIva}"
+                    label="Partita Iva"
+                    
+                    styleClass="demo-form"
+                    />
+                    <h:message for="pIva" styleClass="colori"/>
+                    
+        <h:commandButton value="Registra" action="#{clienteController.registraCliente(c)}" styleClass="demo-button"/>
+                    
+    </h:form>
+    </h:body>
+    </ui:define>
+    </ui:composition>
+</html>

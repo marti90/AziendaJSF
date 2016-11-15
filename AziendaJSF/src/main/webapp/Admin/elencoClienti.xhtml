@@ -7,6 +7,9 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui" >
 
+<ui:composition template="../layout/template.xhtml">
+<ui:define name="content">
+
 <h:head>
 <title>Elenco Clienti</title>
 </h:head>
@@ -29,39 +32,35 @@
        <p:column headerText="Nome">
            <p:cellEditor>
                <f:facet name="output"><h:outputText value="#{cliente.nome}" /></f:facet>
-               <f:facet name="input"><p:inputText id="modelInput" value="#{f.titolo}" style="width:100%"/></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{cliente.nome}" style="width:100%"/></f:facet>
            </p:cellEditor>
        </p:column>
  
        <p:column headerText="Cognome">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{f.dataUscita}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{f.dataUscita}" style="width:100%" label="Data Uscita"/></f:facet>
+               <f:facet name="output"><h:outputText value="#{cliente.cognome}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{cliente.cognome}" style="width:100%" label="Data Uscita"/></f:facet>
            </p:cellEditor>
        </p:column>
  
        <p:column headerText="Username">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{f.regista}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{f.regista}" style="width:100%" label="Regista"/></f:facet>
+               <f:facet name="output"><h:outputText value="#{cliente.username}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{cliente.username}" style="width:100%" label="Regista"/></f:facet>
            </p:cellEditor>
        </p:column>
  
        <p:column headerText="Ragione Sociale">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{f.genere}" /></f:facet>
-               <f:facet name="input">
-                   <h:selectOneMenu value="#{f.genere}" style="width:100%">
-                       <f:selectItems value="#{dtEditView.generi}" var="genere" itemLabel="#{genere}" itemValue="#{genere}" />
-                   </h:selectOneMenu>
-               </f:facet>
+               <f:facet name="output"><h:outputText value="#{cliente.ragioneSociale}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{cliente.ragioneSociale}" style="width:100%" label="Codice Film"/></f:facet>
            </p:cellEditor>
        </p:column>
        
        <p:column headerText="Partita IVA">
            <p:cellEditor>
-               <f:facet name="output"><h:outputText value="#{f.codiceFilm}" /></f:facet>
-               <f:facet name="input"><p:inputText value="#{f.codiceFilm}" style="width:100%" label="Codice Film"/></f:facet>
+               <f:facet name="output"><h:outputText value="#{cliente.pIva}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{cliente.pIva}" style="width:100%" label="Codice Film"/></f:facet>
            </p:cellEditor>
        </p:column>
  
@@ -70,13 +69,16 @@
        </p:column>
        
        <p:column style="width:32px">
-          <p:commandLink action="#{dtEditView.delete(f)}" onclick="if(!confirm('sei sicuro che vuoi cancellare?'))return false" id="iconOnly" update="form">
+          <p:commandLink action="#{editCliente.delete(cliente)}" onclick="if(!confirm('sei sicuro che vuoi cancellare?'))return false" id="iconOnly" update="form">
              <i class="ui-icon ui-icon-trash"/>
           </p:commandLink>
        </p:column>
+       
    </p:dataTable>
  
 </h:form>
 </h:body>
+</ui:define>
+</ui:composition>
 
 </html>
