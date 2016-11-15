@@ -41,7 +41,7 @@ public class EditCliente implements Serializable {
         return clienti;
     }
     
-    public void setFilm(List<Cliente> clienti) {
+    public void setClienti(List<Cliente> clienti) {
 		this.clienti = clienti;
     }
     

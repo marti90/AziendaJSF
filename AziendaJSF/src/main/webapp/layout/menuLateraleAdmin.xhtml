@@ -10,18 +10,18 @@
 <h:form>  
     <p:growl id="messages" showDetail="false"/>
     <p:menu>
-        <p:submenu label="Registrazione">
+        <p:submenu label="Home">
+            <p:menuitem value="Home Page" outcome="HomePageAdmin" update="messages" icon="ui-icon-disk" />
+        </p:submenu>
+        <p:submenu label="Registrazioni">
             <p:menuitem value="Nuovo Cliente" outcome="registrazioneCliente" update="messages" icon="ui-icon-disk" />
             <p:menuitem value="Nuovo Dipendente" outcome="registrazioneDipendente" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
         </p:submenu>
-        <p:submenu label="Non-Ajax">
-            <p:menuitem value="Delete" actionListener="#{menuView.delete}" update="messages" ajax="false" icon="ui-icon-close"/>
-        </p:submenu>
-        <p:submenu label="Navigations">
-            <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
-            <p:menuitem value="Internal" outcome="/mobile/index" icon="ui-icon-star"/>
+        <p:submenu label="Elenchi">
+            <p:menuitem value="Elenco Clienti" outcome="elencoClienti" update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="Elenco Dipendenti" outcome="elencoDipendenti" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
         </p:submenu>
     </p:menu>
     </h:form>
-    
+
 </html>

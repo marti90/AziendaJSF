@@ -4,7 +4,94 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 
+<ui:composition template="../layout/templateAdmin.xhtml">
+    <ui:define name="content">
 
+    <h:head>
+       <title>Registrazione Dipendente</title>
+       <h:outputStylesheet library="css" name="form.css"/>
+       <style>
+          .colori{
+          color:red;
+          }
+       </style>
+    </h:head>
+    
+    <h:body>
+    
+    <h1>Registrazione Nuovo Dipendente</h1>
+    
+    <h:form styleClass="demo-form2">
+    
+               Nome:<h:inputText id="nome" 
+                    name="nome"
+                    value="#{d.nome}" 
+                    label="Nome"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="nome" styleClass="colori"/>
+                    <br/>
+                    
+            Cognome:<h:inputText id="cognome"
+                    name="cognome"
+                    value="#{d.cognome}"
+                    label="Cognome"
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    />
+                    <h:message for="cognome" styleClass="colori"/>
+                    <br/>
+                    
+           Username:<h:inputText id="username"
+                    name="username" 
+                    value="#{d.username}" 
+                    label="Username"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="username" styleClass="colori"/>
+                    <br/>
+                    
+           Password:<h:inputText id="password"
+                    name="password" 
+                    value="#{d.password}" 
+                    label="Password"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="password" styleClass="colori"/>
+                    <br/>
+                    
+          Stipendio:<h:inputText id="stipendio"
+                    name="stipendio" 
+                    value="#{d.stipendio}" 
+                    label="Stipendio"
+                    
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="stipendio" styleClass="colori"/>
+                    <br/>
+                    
+          Posizione:<h:inputText id="posizione"
+                    name="posizione"
+                    value="#{d.posizione}"
+                    label="Posizione"
+                    
+                    styleClass="demo-form"
+                    />
+                    <h:message for="posizione" styleClass="colori"/>
+                    
+        <h:commandButton value="Registra" action="#{dipendenteController.registraDipendente(c)}" styleClass="demo-button"/>
+                    
+    </h:form>
+    </h:body>
+    </ui:define>
+    </ui:composition>
 </html>
