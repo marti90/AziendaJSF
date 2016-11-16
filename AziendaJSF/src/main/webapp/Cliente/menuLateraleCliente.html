@@ -11,11 +11,12 @@
     <p:growl id="messages" showDetail="false"/>
     <p:menu>
         <p:submenu label="Home">
-            <p:menuitem value="Home Page" outcome="HomePageAdmin" update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="Home Page" outcome="HomePageCliente" update="messages" icon="ui-icon-disk" />
         </p:submenu>
-        <p:submenu label="Sezione Clienti">
-            <p:menuitem value="Nuovo Cliente" outcome="registrazioneCliente" update="messages" icon="ui-icon-disk" />
-            <p:menuitem value="Elenco Clienti" outcome="elencoClienti" update="messages" icon="ui-icon-disk" />
+        <p:submenu label="Rubrica">
+            <p:menuitem value="Nuova Voce" outcome="registrazioneVoceCliente" update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="Elenco Voci" outcome="elencoVoci" update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="Trova Voce" outcome="" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
         </p:submenu>
         <p:submenu label="Sezione Dipendenti">
             <p:menuitem value="Nuovo Dipendente" outcome="registrazioneDipendente" update="messages" icon="ui-icon-arrowrefresh-1-w"/>
@@ -23,5 +24,5 @@
         </p:submenu>
     </p:menu>
     </h:form>
-
+    
 </html>
