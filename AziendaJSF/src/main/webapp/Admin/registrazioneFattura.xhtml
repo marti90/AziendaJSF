@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:composition template="../layout/templateAdmin.xhtml">
+    <ui:define name="content">
+
+    <h:head>
+       <title>Registrazione Fattura</title>
+       <h:outputStylesheet library="css" name="form.css"/>
+       <style>
+          .colori{
+          color:red;
+          }
+       </style>
+    </h:head>
+    
+    <h:body>
+    
+    <h1>Registrazione Nuova Fattura</h1>
+    
+    <h:form styleClass="demo-form2">
+    
+     Codice Fattura:<h:inputText id="codice" 
+                    name="codice"
+                    value="#{f.codFattura}" 
+                    label="Codice Fattura"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="codice" styleClass="colori"/>
+                    <br/>
+                    
+     Data Emissione:<p:calendar id="data"
+                    name="data"
+                    value="#{f.dataEmissione}"
+                    mask="true"
+                    label="Data Emissione"
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    />
+                    <h:message for="data" styleClass="colori"/>
+                    <br/>
+                    
+            Importo:<h:inputText id="importo"
+                    name="importo" 
+                    value="#{f.importo}" 
+                    label="Importo"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="importo" styleClass="colori"/>
+                    <br/>
+       
+        <h:commandButton value="Registra" action="#{fatturaController.inviaFattura(f)}" styleClass="demo-button"/>
+                    
+    </h:form>
+    </h:body>
+    </ui:define>
+    </ui:composition>
+
+
+</html>

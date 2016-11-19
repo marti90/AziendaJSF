@@ -9,9 +9,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @ManagedBean(name="bp", eager=true)
 @SessionScoped
+@XmlRootElement
 @Entity
 public class BustaPaga implements Serializable{
 
