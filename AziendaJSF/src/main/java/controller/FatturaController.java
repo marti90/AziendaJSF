@@ -22,13 +22,13 @@ public class FatturaController {
 		invocazione= new InvocazioneFatture();
 	}
 	
-	public Fattura richiestaFatturaConCodice(String codice){
+	public String richiestaFatturaConCodice(String codice){
 		
-		Response risposta = invocazione.richiestaFatturaConCodice(codice)
-                                       .invoke();
+		invocazione.richiestaFatturaConCodice(codice)
+                   .invoke();
 
-        Fattura fattura = risposta.readEntity(Fattura.class);
-        return fattura;
+        
+        return "paginaViewFattura?faces-redirect=true";
 	}
 	
 	public String inviaFattura(Fattura f){

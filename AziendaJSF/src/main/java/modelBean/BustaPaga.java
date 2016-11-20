@@ -35,7 +35,7 @@ public class BustaPaga implements Serializable{
 		
 	}
 
-	public BustaPaga(long id_busta, Dipendente dipendente, String dataEmissione, double importo) {
+	public BustaPaga(Dipendente dipendente, String dataEmissione, double importo) {
 		
 		this.dipendente = dipendente;
 		this.dataEmissione = dataEmissione;
