@@ -7,6 +7,10 @@ import modelBean.Fattura;
 
 public class InvocazioneFatture extends Invocazione{
 	
+	public InvocazioneFatture(){
+		
+	}
+	
     public Invocation richiestaFatturaConCodice(String codFattura){
 		
 		return targetFatture.path(codFattura).request().buildGet();
@@ -20,6 +24,11 @@ public class InvocazioneFatture extends Invocazione{
 	public Invocation richiestaListaFatture(){
 		
 		return targetFatture.request().buildGet();
+	}
+	
+	public Invocation richiestaFatturaConAnnoMese(String anno, String mese){
+		
+		return targetFatture.path(anno+"/"+mese).request().buildGet();
 	}
     
 

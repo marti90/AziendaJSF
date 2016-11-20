@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:composition template="../layout/templateAdmin.xhtml">
+    <ui:define name="content">
+
+    <h:head>
+       <title>Registrazione Busta Paga</title>
+       <h:outputStylesheet library="css" name="form.css"/>
+       <style>
+          .colori{
+          color:red;
+          }
+       </style>
+    </h:head>
+    
+    <h:body>
+    
+    <h1>Registrazione Nuova Busta Paga</h1>
+    
+    <h:form styleClass="demo-form2">
+    
+         Dipendente:<h:selectOneMenu value="#{bp.dipendente}"
+					styleClass="input-text">
+					     <f:selectItems value="#{dipendenteController.getListaDipendenti()}"/>
+				    </h:selectOneMenu>
+                    <br/>
+                    
+     Data Emissione:<p:calendar id="mask" 
+                    value="#{bp.dataEmissione}" 
+                    pattern="dd/MM/yyyy" 
+                    mask="true" />
+                    <br/>
+                    
+            Importo:<h:inputText id="importo"
+                    name="importo" 
+                    value="#{bp.importo}" 
+                    label="Importo"
+                    required="true" 
+                    requiredMessage="Questo campo e' obbligatorio"
+                    styleClass="demo-form"
+                    /> 
+                    <h:message for="importo" styleClass="colori"/>
+                    <br/>
+                 
+        <h:commandButton value="Registra" action="#{bustaPagaController.registraBustaPaga(bp)}" styleClass="demo-button"/>
+                    
+    </h:form>
+    </h:body>
+    </ui:define>
+    </ui:composition>
+</html>
