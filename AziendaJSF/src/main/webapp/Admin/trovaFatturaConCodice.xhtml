@@ -11,7 +11,7 @@
     <ui:define name="content">
 
     <h:head>
-       <title>Registrazione Busta Paga</title>
+       <title>Registrazione Fattura</title>
        <h:outputStylesheet library="css" name="form.css"/>
        <style>
           .colori{
@@ -22,37 +22,27 @@
     
     <h:body>
     
-    <h1>Registrazione Nuova Busta Paga</h1>
+    <h1>Trova Fattura</h1>
     
     <h:form styleClass="demo-form2">
     
-         Dipendente:<h:selectOneMenu value="#{bp.dipendente.username}"
-					styleClass="input-text">
-					     <f:selectItems value="#{dipendenteController.getListaDipendenti}"/>
-				    </h:selectOneMenu>
-                    <br/>
-                    
-     Data Emissione:<p:calendar id="mask" 
-                    value="#{bp.dataEmissione}" 
-                    pattern="dd/MM/yyyy" 
-                    mask="true" />
-                    <br/>
-                    
-            Importo:<h:inputText id="importo"
-                    name="importo" 
-                    value="#{bp.importo}" 
-                    label="Importo"
+     Codice Fattura:<h:inputText id="codice" 
+                    name="codice"
+                    value="#{f.codiceFattura}" 
+                    label="Codice Fattura"
                     required="true" 
                     requiredMessage="Questo campo e' obbligatorio"
                     styleClass="demo-form"
                     /> 
-                    <h:message for="importo" styleClass="colori"/>
+                    <h:message for="codice" styleClass="colori"/>
                     <br/>
-                 
-        <h:commandButton value="Registra" action="#{bustaPagaController.registraBustaPaga(bp)}" styleClass="demo-button"/>
+                    
+        <h:commandButton value="Trova" action="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura)}" styleClass="demo-button"/>
                     
     </h:form>
     </h:body>
     </ui:define>
     </ui:composition>
+
+
 </html>
