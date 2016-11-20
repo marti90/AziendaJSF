@@ -11,35 +11,35 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Fattura {
 	
-	private String codFattura;
-	private Date dataEmissione;
+	private String codiceFattura;
+	private Date data;
 	private double importo;
 	
 	public Fattura(){
 		
 	}
 	
-	public Fattura(String codFattura, Date dataEmissione, double importo) {
+	public Fattura(String codFattura, Date data, double importo) {
 		super();
-		this.codFattura = codFattura;
-		this.dataEmissione = dataEmissione;
+		this.codiceFattura = codFattura;
+		this.data = data;
 		this.importo = importo;
 	}
 	
 	public String getCodFattura() {
-		return codFattura;
+		return codiceFattura;
 	}
 	
 	public void setCodFattura(String codFattura) {
-		this.codFattura = codFattura;
+		this.codiceFattura = codFattura;
 	}
 	
 	public Date getDataEmissione() {
-		return dataEmissione;
+		return data;
 	}
 	
-	public void setDataEmissione(Date dataEmissione) {
-		this.dataEmissione = dataEmissione;
+	public void setDataEmissione(Date data) {
+		this.data = data;
 	}
 	
 	public double getImporto() {
