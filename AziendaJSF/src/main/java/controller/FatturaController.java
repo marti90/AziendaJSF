@@ -9,15 +9,14 @@ import javax.faces.context.FacesContext;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
-import modelBean.Cliente;
 import modelBean.Fattura;
-import client.Invocazione;
+import client.InvocazioneFatture;
 
 @ManagedBean(name="fatturaController",eager=true)
 @SessionScoped
 public class FatturaController {
 	
-	Invocazione invocazione = new Invocazione();
+	InvocazioneFatture invocazione = new InvocazioneFatture();
 	
 	public Fattura richiestaFatturaConCodice(String codice){
 		
@@ -34,7 +33,7 @@ public class FatturaController {
 				                       .invoke();
 		
 		if(response.getStatus()!=201){
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("La Fattura e' stata inviata correttamente!"));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("La Fattura NON e' stata registrata correttamente!"));
 		}
 		
 		return "HomePageAdmin?faces-redirect=true";
