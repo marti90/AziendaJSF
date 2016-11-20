@@ -19,9 +19,9 @@ public class Fattura {
 		
 	}
 	
-	public Fattura(String codFattura, Date data, double importo) {
-		super();
-		this.codiceFattura = codFattura;
+	public Fattura(Date data, double importo, String codiceFattura) {
+
+		this.codiceFattura = codiceFattura;
 		this.data = data;
 		this.importo = importo;
 	}
