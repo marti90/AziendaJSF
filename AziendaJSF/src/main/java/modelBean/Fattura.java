@@ -21,25 +21,9 @@ public class Fattura {
 	
 	public Fattura(Date data, double importo, String codiceFattura) {
 
-		this.codiceFattura = codiceFattura;
-		this.data = data;
+		this.setCodiceFattura(codiceFattura);
+		this.setData(data);
 		this.importo = importo;
-	}
-	
-	public String getCodFattura() {
-		return codiceFattura;
-	}
-	
-	public void setCodFattura(String codFattura) {
-		this.codiceFattura = codFattura;
-	}
-	
-	public Date getDataEmissione() {
-		return data;
-	}
-	
-	public void setDataEmissione(Date data) {
-		this.data = data;
 	}
 	
 	public double getImporto() {
@@ -48,6 +32,22 @@ public class Fattura {
 	
 	public void setImporto(double importo) {
 		this.importo = importo;
+	}
+
+	public String getCodiceFattura() {
+		return codiceFattura;
+	}
+
+	public void setCodiceFattura(String codiceFattura) {
+		this.codiceFattura = codiceFattura;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
 	}
 	
 }
