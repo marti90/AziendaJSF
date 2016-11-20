@@ -1,5 +1,6 @@
 package main;
 
+import service.Gestione;
 import modelBean.BustaPaga;
 import modelBean.Dipendente;
 
@@ -15,7 +16,15 @@ public class MainBustePaga {
 		BustaPaga b3 = new BustaPaga(d2,"18/11/2016",10.6);
 		BustaPaga b4 = new BustaPaga(d1,"19/11/2016",400.6);
 		
+		Gestione g = new Gestione();
 		
+		g.registraDipendente(d1);
+		g.registraDipendente(d2);
+		
+		g.registraBusta(d1, b1);
+		g.registraBusta(d2, b2);
+		g.registraBusta(d2, b3);
+		g.registraBusta(d1, b4);
 
 	}
 
