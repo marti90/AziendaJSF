@@ -10,55 +10,68 @@
 	<ui:composition template="../layout/templateAdmin.xhtml">
     <ui:define name="content">
 
-    <h:head>
-       <title>Trova Fattura</title>
-       <h:outputStylesheet library="css" name="form.css"/>
-       <style>
-          .colori{
-          color:red;
-          }
-       </style>
-    </h:head>
-    
-    <h:body>
-    
+    <p:panel id="panel" header="Trova Fattura">
+    <p:messages id="msgs" />
    
     <h:form>
-    <h:panelGrid columns="3">
-        <h:outputText value="Codice Fattura: " />
-        <p:inputText id="codice" value="#{f.codiceFattura}">
-            <p:ajax event="keyup" update="out1" listener="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura)}" />
+    
+    <h:panelGrid id="searchCode" cellpadding="5" columns="2" style="margin-bottom:10px">
+    
+        <h:outputText value="Inserisci Codice Fattura:" style="font-weight:bold"/>
+        
+        <p:inputText id="codice" value="#{codice}">
+            <p:ajax event="keyup" update="fatt" listener="#{fatturaController.richiestaFatturaConCodice(codice)}" />
         </p:inputText>
         
     </h:panelGrid>
-    <h:panelGrid columns="3">
-        <h:outputText id="out1" value="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura).codiceFattura}" />
-    </h:panelGrid>
+    
+    <p:dataTable id="fatt" var="fattura" value="#{fatturaController.fattura}" editable="true" style="margin-bottom:20px">
+        
+        <p:column headerText="Codice Fattura">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{fattura.codiceFattura}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText id="modelInput" value="#{fattura.codiceFattura}"
+									style="width:100%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Data">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{fattura.data}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{fattura.data}" style="width:100%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Importo">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{fattura.importo}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{fattura.importo}" style="width:100%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column style="width:32px">
+						<p:rowEditor />
+					</p:column>
+        
+    </p:dataTable>
     
     </h:form>
-<!--      <p:panel id="panel" header="Trova Fattura con Codice" style="margin-bottom:10px;"> -->
-<!--      <p:messages id="messages" /> -->
-<!--         <h:panelGrid columns="4" cellpadding="5"> -->
-<!--             <h:outputLabel for="codice" value="Codice Fattura"/> -->
-<!--             <p:inputText id="codice" value="#{f.codiceFattura}" required="true" label="Codice Fattura"> -->
-<!--                 <f:validateLength minimum="2" /> -->
-<!--             </p:inputText> -->
-<!--             <p:message for="codice" /> -->
-<!--         </h:panelGrid> -->
-<!--     </p:panel> -->
- 
-<!--     <h:panelGrid columns="2"> -->
-<!--         <p:commandButton process="@parent:@parent" update="@form" value="Trova" /> -->
-<!--     </h:panelGrid> -->
     
-<!--     <p:panel id="panel2" header="Fattura Trovata" style="margin-bottom:10px;"> -->
-<!--         <h:outputText value="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura).codiceFattura}"/> -->
-<!--         <h:outputText value="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura).data}"/> -->
-<!--         <h:outputText value="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura).importo}"/> -->
-<!--     </p:panel> -->
-                    
-<!--     </h:form> -->
-    </h:body>
+    </p:panel>
+
+   
     </ui:define>
     </ui:composition>
 

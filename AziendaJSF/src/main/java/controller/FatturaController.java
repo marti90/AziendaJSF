@@ -1,5 +1,6 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -17,10 +18,13 @@ import client.InvocazioneFatture;
 public class FatturaController {
 	
 	private InvocazioneFatture invocazione;
+	private List<Fattura> listaFatture;
 	private String codice;
+	private Fattura fattura;
 	
 	public FatturaController(){
 		invocazione= new InvocazioneFatture();
+		setListaFatture(new ArrayList<Fattura>());
 	}
 	
 	public Fattura richiestaFatturaConCodice(String codice){
@@ -28,9 +32,9 @@ public class FatturaController {
 		System.out.println("Entrato");
 		Response response = invocazione.richiestaFatturaConCodice(codice)
                                        .invoke();
-		Fattura f= response.readEntity(Fattura.class);
-		System.out.println(f.getCodiceFattura());
-        return f;
+		fattura= response.readEntity(Fattura.class);
+		System.out.println(fattura.getImporto());
+        return fattura;
 	}
 	
 	public String inviaFattura(Fattura f){
@@ -50,7 +54,7 @@ public class FatturaController {
 		
 		Response response = invocazione.richiestaListaFatture()
 				                      .invoke();
-		List<Fattura> listaFatture = response.readEntity(new GenericType<List<Fattura>>(){});
+		listaFatture = response.readEntity(new GenericType<List<Fattura>>(){});
 		return listaFatture;
 	}
 	
@@ -69,4 +73,21 @@ public class FatturaController {
 		this.codice = codice;
 	}
 
+	public List<Fattura> getListaFatture() {
+		return listaFatture;
+	}
+
+	public void setListaFatture(List<Fattura> listaFatture) {
+		this.listaFatture = listaFatture;
+	}
+
+	public Fattura getFattura() {
+		return fattura;
+	}
+
+	public void setFattura(Fattura fattura) {
+		this.fattura = fattura;
+	}
+
+	
 }
