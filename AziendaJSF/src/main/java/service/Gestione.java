@@ -191,13 +191,10 @@ private BustaPagaDAO bDao= new BustaPagaDAO();
     	return res;
     }
     
-    public boolean registraBusta(Dipendente d, BustaPaga bp) {
+    public boolean registraBusta(BustaPaga bp) {
 		
     	boolean res = false;
-		bp.setDipendente(d);
-		d.aggiungiBusta(bp);
 		boolean b = bDao.createBustaPaga(bp);
-		dDao.updateDipendente(d);
 		if(b==true)
 		{
 			res =true;

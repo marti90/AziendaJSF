@@ -20,7 +20,7 @@ public class BustaPagaController {
 	public String registraBustaPaga(BustaPaga b){
 	    	Dipendente d=g.getBustaConId(b.getId_busta()).getDipendente();
 	    	b.setDipendente(d);
-	    	g.registraBusta(d, b);
+	    	g.registraBusta(b);
 	    	return "HomePageAdmin?faces-reidrect-true";
 	    }
 

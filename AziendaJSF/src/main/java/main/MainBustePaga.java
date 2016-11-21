@@ -21,10 +21,10 @@ public class MainBustePaga {
 		g.registraDipendente(d1);
 		g.registraDipendente(d2);
 		
-		g.registraBusta(d1, b1);
-		g.registraBusta(d2, b2);
-		g.registraBusta(d2, b3);
-		g.registraBusta(d1, b4);
+		g.registraBusta(b1);
+		g.registraBusta(b2);
+		g.registraBusta(b3);
+		g.registraBusta(b4);
 
 	}
 
