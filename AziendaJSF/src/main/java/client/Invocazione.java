@@ -19,7 +19,7 @@ abstract class Invocazione {
 	
 	abstract Invocation richiestaListaFatture();
 	
-	abstract Invocation richiestaFatturaConAnnoMese(String anno, String mese);
+	abstract Invocation richiestaFattureDiUnPeriodo(String data1, String data2);
 		
 		
 

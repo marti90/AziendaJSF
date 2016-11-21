@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
@@ -58,11 +59,14 @@ public class FatturaController {
 		return listaFatture;
 	}
 	
-	public String richiestaFatturaConAnnoMese(String anno, String mese){
+	public List<Fattura> richiestaFattureDiUnPeriodo(@QueryParam("dataI") String data1,
+			                                         @QueryParam("dataF") String data2){
 		
-		invocazione.richiestaFatturaConAnnoMese(anno, mese)
+		Response response= invocazione.richiestaFattureDiUnPeriodo(data1, data2)
 				   .invoke();
-		return "paginaViewFattura?faces-redirect=true";
+		
+		listaFatture= response.readEntity(new GenericType<List<Fattura>>(){});
+		return listaFatture;
 	}
 
 	public String getCodice() {
