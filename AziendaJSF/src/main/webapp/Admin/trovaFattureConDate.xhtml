@@ -6,26 +6,28 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
-	<ui:composition template="../layout/templateAdmin.xhtml">
+
+    <ui:composition template="../layout/templateAdmin.xhtml">
     <ui:define name="content">
 
-    <p:panel id="panel" header="Trova Fattura">
+    <p:panel id="panel" header="Trova Fatture del Periodo inserito">
     <p:messages id="msgs" />
    
     <h:form>
     
     <h:panelGrid id="searchCode" cellpadding="5" columns="2" style="margin-bottom:10px">
     
-        <h:outputText value="Inserisci Codice Fattura:" style="font-weight:bold"/>
+        <h:outputText value="Inserisci Data Inizio:" style="font-weight:bold"/>
+        <p:calendar id="data1" value="#{dataI}" required="true"></p:calendar>
+           
+        <h:outputText value="Inserisci Data Fine:" style="font-weight:bold"/>
+        <p:calendar id="date2" value="#{dataF}" required="true"/>
         
-        <p:inputText id="codice" value="#{codice}">
-            <p:ajax event="keyup" update="fatt" listener="#{fatturaController.richiestaFatturaConCodice(codice)}" />
-        </p:inputText>
-        
+        <p:commandButton value="Trova" update="date" actionListener="#{fatturaController.richiestaFattureDiUnPeriodo(dataI,dataF)}"/>
+       
     </h:panelGrid>
     
-    <p:dataTable id="fatt" var="fattura" value="#{fatturaController.fattura}" editable="true" style="margin-bottom:20px">
+    <p:dataTable id="date" var="fattura" value="#{fatturaController.listaFatture}" editable="true" style="margin-bottom:20px">
         
         <p:column headerText="Codice Fattura">
 						<p:cellEditor>
@@ -75,5 +77,5 @@
     </ui:define>
     </ui:composition>
 
-
+    
 </html>

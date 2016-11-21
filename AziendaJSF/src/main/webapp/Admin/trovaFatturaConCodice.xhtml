@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<ui:composition template="../layout/templateAdmin.xhtml">
+    <ui:define name="content">
+
+    <p:panel id="panel" header="Trova Fattura con il suo Codice">
+    <p:messages id="msgs" />
+   
+    <h:form>
+    
+    <h:panelGrid id="searchCode" cellpadding="5" columns="2" style="margin-bottom:10px">
+    
+        <h:outputText value="Inserisci Codice Fattura:" style="font-weight:bold"/>
+        
+        <p:inputText id="codice" value="#{codice}">
+            <p:ajax event="keyup" update="fatt" listener="#{fatturaController.richiestaFatturaConCodice(codice)}" />
+        </p:inputText>
+        
+    </h:panelGrid>
+    
+    <p:dataTable id="fatt" var="fattura" value="#{fatturaController.fattura}" editable="true" style="margin-bottom:20px">
+        
+        <p:column headerText="Codice Fattura">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{fattura.codiceFattura}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText id="modelInput" value="#{fattura.codiceFattura}"
+									style="width:100%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Data">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{fattura.data}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{fattura.data}" style="width:100%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Importo">
+						<p:cellEditor>
+							<f:facet name="output">
+								<h:outputText value="#{fattura.importo}" />
+							</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{fattura.importo}" style="width:100%" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column style="width:32px">
+						<p:rowEditor />
+					</p:column>
+        
+    </p:dataTable>
+    
+    </h:form>
+    
+    </p:panel>
+
+   
+    </ui:define>
+    </ui:composition>
+
+
+</html>
