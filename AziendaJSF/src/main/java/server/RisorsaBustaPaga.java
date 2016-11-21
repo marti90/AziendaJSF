@@ -1,7 +1,6 @@
 package server;
 
-import dao.BustaPagaDAO;
-import modelBean.BustaPaga;
+import dao.BustaPaga2DAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +10,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import modelBean.BustaPagaService;
+
 @Path("bustePaga")
 @Produces(MediaType.APPLICATION_JSON)
 public class RisorsaBustaPaga {
 	
-	BustaPagaDAO bDao= new BustaPagaDAO();
+	BustaPaga2DAO bDao= new BustaPaga2DAO();
 	
 	@GET
-	public List<BustaPaga> getTutteBuste(){
-		return new ArrayList<BustaPaga>(bDao.readBustePaga());
+	public List<BustaPagaService> getTutteBuste(){
+		return new ArrayList<BustaPagaService>(bDao.readBustePaga2());
 	}
 	
 }

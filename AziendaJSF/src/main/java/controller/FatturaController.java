@@ -17,18 +17,20 @@ import client.InvocazioneFatture;
 public class FatturaController {
 	
 	private InvocazioneFatture invocazione;
+	private String codice;
 	
 	public FatturaController(){
 		invocazione= new InvocazioneFatture();
 	}
 	
-	public String richiestaFatturaConCodice(String codice){
+	public Fattura richiestaFatturaConCodice(String codice){
 		
-		invocazione.richiestaFatturaConCodice(codice)
-                   .invoke();
-
-        
-        return "paginaViewFattura?faces-redirect=true";
+		System.out.println("Entrato");
+		Response response = invocazione.richiestaFatturaConCodice(codice)
+                                       .invoke();
+		Fattura f= response.readEntity(Fattura.class);
+		System.out.println(f.getCodiceFattura());
+        return f;
 	}
 	
 	public String inviaFattura(Fattura f){
@@ -46,10 +48,25 @@ public class FatturaController {
 	
 	public List<Fattura> richiestaListaFatture(){
 		
-		Response response= invocazione.richiestaListaFatture()
+		Response response = invocazione.richiestaListaFatture()
 				                      .invoke();
 		List<Fattura> listaFatture = response.readEntity(new GenericType<List<Fattura>>(){});
 		return listaFatture;
+	}
+	
+	public String richiestaFatturaConAnnoMese(String anno, String mese){
+		
+		invocazione.richiestaFatturaConAnnoMese(anno, mese)
+				   .invoke();
+		return "paginaViewFattura?faces-redirect=true";
+	}
+
+	public String getCodice() {
+		return codice;
+	}
+
+	public void setCodice(String codice) {
+		this.codice = codice;
 	}
 
 }

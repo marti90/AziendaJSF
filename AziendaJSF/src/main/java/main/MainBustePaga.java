@@ -1,30 +1,27 @@
 package main;
 
-import service.Gestione;
-import modelBean.BustaPaga;
-import modelBean.Dipendente;
+import java.util.Date;
+
+import service.GestioneBustaPaga;
+import modelBean.BustaPagaService;
 
 public class MainBustePaga {
 
 	public static void main(String[] args) {
 		
-		Dipendente d1 = new Dipendente("Martina", "DeMartini","marti90",'D',"ml90",10500.5,"Posizione");
-		Dipendente d2 = new Dipendente("Rossella", "Pillotta","ross",'D',"magliaAzzurra",10500.5,"Posizione");
+		Date d = new Date();
 		
-		BustaPaga b1 = new BustaPaga(d1,"20/11/2016",200.6);
-		BustaPaga b2 = new BustaPaga(d2,"21/11/2016",205.6);
-		BustaPaga b3 = new BustaPaga(d2,"18/11/2016",10.6);
-		BustaPaga b4 = new BustaPaga(d1,"19/11/2016",400.6);
+		BustaPagaService b1 = new BustaPagaService("busta1",d,200.6);
+		BustaPagaService b2 = new BustaPagaService("busta2",d,205.6);
+		BustaPagaService b3 = new BustaPagaService("busta3",d,10.6);
+		BustaPagaService b4 = new BustaPagaService("busta4",d,400.6);
 		
-		Gestione g = new Gestione();
+		GestioneBustaPaga gbp = new GestioneBustaPaga();
 		
-		g.registraDipendente(d1);
-		g.registraDipendente(d2);
-		
-		g.registraBusta(b1);
-		g.registraBusta(b2);
-		g.registraBusta(b3);
-		g.registraBusta(b4);
+		gbp.registraBusta2(b1);
+		gbp.registraBusta2(b2);
+		gbp.registraBusta2(b3);
+		gbp.registraBusta2(b4);
 
 	}
 

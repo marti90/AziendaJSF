@@ -3,11 +3,11 @@ package modelBean;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.persistence.Entity;
 
 @ManagedBean(name="c", eager=true)
-@SessionScoped
+@RequestScoped
 @Entity
 public class Cliente extends Utente implements Serializable{
 	

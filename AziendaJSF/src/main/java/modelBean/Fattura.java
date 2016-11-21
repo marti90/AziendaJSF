@@ -3,11 +3,11 @@ package modelBean;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @ManagedBean(name="f", eager=true)
-@SessionScoped
+@RequestScoped
 @XmlRootElement
 public class Fattura {
 	

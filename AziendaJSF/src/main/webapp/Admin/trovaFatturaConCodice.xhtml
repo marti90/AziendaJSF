@@ -11,7 +11,7 @@
     <ui:define name="content">
 
     <h:head>
-       <title>Registrazione Fattura</title>
+       <title>Trova Fattura</title>
        <h:outputStylesheet library="css" name="form.css"/>
        <style>
           .colori{
@@ -22,24 +22,42 @@
     
     <h:body>
     
-    <h1>Trova Fattura</h1>
+   
+    <h:form>
+    <h:panelGrid columns="3">
+        <h:outputText value="Codice Fattura: " />
+        <p:inputText id="codice" value="#{f.codiceFattura}">
+            <p:ajax event="keyup" update="out1" listener="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura)}" />
+        </p:inputText>
+        
+    </h:panelGrid>
+    <h:panelGrid columns="3">
+        <h:outputText id="out1" value="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura).codiceFattura}" />
+    </h:panelGrid>
     
-    <h:form styleClass="demo-form2">
-    
-     Codice Fattura:<h:inputText id="codice" 
-                    name="codice"
-                    value="#{f.codiceFattura}" 
-                    label="Codice Fattura"
-                    required="true" 
-                    requiredMessage="Questo campo e' obbligatorio"
-                    styleClass="demo-form"
-                    /> 
-                    <h:message for="codice" styleClass="colori"/>
-                    <br/>
-                    
-        <h:commandButton value="Trova" action="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura)}" styleClass="demo-button"/>
-                    
     </h:form>
+<!--      <p:panel id="panel" header="Trova Fattura con Codice" style="margin-bottom:10px;"> -->
+<!--      <p:messages id="messages" /> -->
+<!--         <h:panelGrid columns="4" cellpadding="5"> -->
+<!--             <h:outputLabel for="codice" value="Codice Fattura"/> -->
+<!--             <p:inputText id="codice" value="#{f.codiceFattura}" required="true" label="Codice Fattura"> -->
+<!--                 <f:validateLength minimum="2" /> -->
+<!--             </p:inputText> -->
+<!--             <p:message for="codice" /> -->
+<!--         </h:panelGrid> -->
+<!--     </p:panel> -->
+ 
+<!--     <h:panelGrid columns="2"> -->
+<!--         <p:commandButton process="@parent:@parent" update="@form" value="Trova" /> -->
+<!--     </h:panelGrid> -->
+    
+<!--     <p:panel id="panel2" header="Fattura Trovata" style="margin-bottom:10px;"> -->
+<!--         <h:outputText value="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura).codiceFattura}"/> -->
+<!--         <h:outputText value="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura).data}"/> -->
+<!--         <h:outputText value="#{fatturaController.richiestaFatturaConCodice(f.codiceFattura).importo}"/> -->
+<!--     </p:panel> -->
+                    
+<!--     </h:form> -->
     </h:body>
     </ui:define>
     </ui:composition>

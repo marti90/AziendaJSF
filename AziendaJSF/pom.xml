@@ -21,6 +21,11 @@
     <version>6.0</version>
     </dependency>
     <dependency>
+		<groupId>org.primefaces.extensions</groupId>
+		<artifactId>all-themes</artifactId>
+		<version>1.0.8</version>
+    </dependency>
+    <dependency>
         <groupId>com.sun.faces</groupId>
         <artifactId>jsf-api</artifactId>
         <version>2.2.2</version>
@@ -57,16 +62,17 @@
         <version>2.7</version>
     </dependency>
     <dependency>
-            <groupId>org.glassfish.jersey.bundles</groupId>
-            <artifactId>jaxrs-ri</artifactId>
-            <version>2.16</version>
-        </dependency>
+        <groupId>org.glassfish.jersey.bundles</groupId>
+        <artifactId>jaxrs-ri</artifactId>
+        <version>2.16</version>
+    </dependency>
         <!-- uncomment this to get JSON support -->
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-moxy</artifactId>
-            <version>2.16</version>
-        </dependency>
+    <dependency>
+        <groupId>org.glassfish.jersey.media</groupId>
+        <artifactId>jersey-media-moxy</artifactId>
+        <version>2.16</version>
+    </dependency>
+       
   </dependencies>
   <build>
     <finalName>AziendaJSF</finalName>

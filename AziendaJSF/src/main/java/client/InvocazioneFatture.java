@@ -28,7 +28,7 @@ public class InvocazioneFatture extends Invocazione{
 	
 	public Invocation richiestaFatturaConAnnoMese(String anno, String mese){
 		
-		return targetFatture.path(anno+"/"+mese).request().buildGet();
+		return targetFatture.path(anno).path(mese).request().buildGet();
 	}
     
 
