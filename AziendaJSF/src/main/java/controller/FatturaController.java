@@ -12,6 +12,7 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
 
 import modelBean.Fattura;
+import modelBean.FiltroFattura;
 import client.InvocazioneFatture;
 
 @ManagedBean(name="fatturaController",eager=true)
@@ -28,10 +29,10 @@ public class FatturaController {
 		setListaFatture(new ArrayList<Fattura>());
 	}
 	
-	public Fattura richiestaFatturaConCodice(String codice){
+	public Fattura richiestaFatturaConCodice(String codice1){
 		
 		System.out.println("Entrato");
-		Response response = invocazione.richiestaFatturaConCodice(codice)
+		Response response = invocazione.richiestaFatturaConCodice(codice1)
                                        .invoke();
 		fattura= response.readEntity(Fattura.class);
 		System.out.println(fattura.getImporto());
@@ -59,10 +60,9 @@ public class FatturaController {
 		return listaFatture;
 	}
 	
-	public List<Fattura> richiestaFattureDiUnPeriodo(@QueryParam("dataI") String data1,
-			                                         @QueryParam("dataF") String data2){
+	public List<Fattura> richiestaFattureDiUnPeriodo(FiltroFattura filtroF){
 		
-		Response response= invocazione.richiestaFattureDiUnPeriodo(data1, data2)
+		Response response= invocazione.richiestaFattureDiUnPeriodo(filtroF.getDataInizio(), filtroF.getDataFine())
 				   .invoke();
 		
 		listaFatture= response.readEntity(new GenericType<List<Fattura>>(){});
