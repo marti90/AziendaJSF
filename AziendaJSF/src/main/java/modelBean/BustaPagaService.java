@@ -25,17 +25,17 @@ public class BustaPagaService implements Serializable{
 	private long id_busta;
 	
 	private String codiceBusta;
-	private Date data;
+	private Date dataEmissione;
 	private double importo;
 	
     public BustaPagaService(){
 		
 	}
 
-	public BustaPagaService(String codiceBusta, Date data, double importo) {
+	public BustaPagaService(String codiceBusta, Date dataEmissione, double importo) {
 		
 		this.codiceBusta = codiceBusta;
-		this.data = data;
+		this.setDataEmissione(dataEmissione);
 		this.importo = importo;
 	}
 
@@ -55,14 +55,6 @@ public class BustaPagaService implements Serializable{
 		this.codiceBusta = codiceBusta;
 	}
 
-	public Date getData() {
-		return data;
-	}
-
-	public void setData(Date data) {
-		this.data = data;
-	}
-
 	public double getImporto() {
 		return importo;
 	}
@@ -73,6 +65,14 @@ public class BustaPagaService implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Date getDataEmissione() {
+		return dataEmissione;
+	}
+
+	public void setDataEmissione(Date dataEmissione) {
+		this.dataEmissione = dataEmissione;
 	}
 
 }

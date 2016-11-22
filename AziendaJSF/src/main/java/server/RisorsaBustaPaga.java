@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 import modelBean.BustaPagaService;
 
 @Path("bustePaga")
-@Produces(MediaType.APPLICATION_JSON)
+@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 public class RisorsaBustaPaga {
 	
 	BustaPaga2DAO bDao= new BustaPaga2DAO();
