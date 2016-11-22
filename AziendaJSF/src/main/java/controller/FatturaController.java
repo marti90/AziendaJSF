@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.GenericType;
@@ -18,7 +18,7 @@ import modelBean.Fattura;
 import client.InvocazioneFatture;
 
 @ManagedBean(name="fatturaController",eager=true)
-@SessionScoped
+@ViewScoped
 public class FatturaController {
 	
 	private InvocazioneFatture invocazione;
@@ -30,7 +30,6 @@ public class FatturaController {
 	
 	public FatturaController(){
 		invocazione= new InvocazioneFatture();
-		fattura= new Fattura();
 		setListaFatture(new ArrayList<Fattura>());
 		setListaFatture2(new ArrayList<Fattura>());
 	}

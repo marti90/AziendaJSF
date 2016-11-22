@@ -28,7 +28,8 @@ public class InvocazioneFatture extends Invocazione{
 	
 	public Invocation richiestaFattureDiUnPeriodo(String dataInizio, String dataFine){
 		
-		return targetFatture.queryParam("dataInizio", dataInizio)
+		return targetFatture.path("/fattura")
+				            .queryParam("dataInizio", dataInizio)
 				            .queryParam("dataFine", dataFine)
 				            .request()
 				            .buildGet();
