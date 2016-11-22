@@ -18,16 +18,16 @@
     <h:panelGrid id="searchCode" cellpadding="5" columns="2" style="margin-bottom:10px">
     
         <h:outputText value="Inserisci Data Inizio:" style="font-weight:bold"/>
-        <p:calendar id="data1" value="#{dataI}" required="true"></p:calendar>
+        <p:calendar id="data1" value="#{dataInizio}" required="true"></p:calendar>
            
         <h:outputText value="Inserisci Data Fine:" style="font-weight:bold"/>
-        <p:calendar id="date2" value="#{dataF}" required="true"/>
+        <p:calendar id="date2" value="#{dataFine}" required="true"/>
         
-        <p:commandButton value="Trova" update="date" actionListener="#{fatturaController.richiestaFattureDiUnPeriodo(dataI,dataF)}"/>
+        <p:commandButton value="Trova" update="date" actionListener="#{fatturaController.richiestaFattureDiUnPeriodo(dataInizio,dataFine)}"/>
        
     </h:panelGrid>
     
-    <p:dataTable id="date" var="fattura" value="#{fatturaController.listaFatture}" editable="true" style="margin-bottom:20px">
+    <p:dataTable id="date" var="fattura" value="#{fatturaController.listaFatture2}" editable="true" style="margin-bottom:20px">
         
         <p:column headerText="Codice Fattura">
 						<p:cellEditor>

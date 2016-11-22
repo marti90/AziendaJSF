@@ -1,6 +1,9 @@
 package controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -20,19 +23,22 @@ public class FatturaController {
 	
 	private InvocazioneFatture invocazione;
 	private List<Fattura> listaFatture;
-
+	private List<Fattura> listaFatture2;
+	
 	private String codice;
 	private Fattura fattura;
 	
 	public FatturaController(){
 		invocazione= new InvocazioneFatture();
+		fattura= new Fattura();
 		setListaFatture(new ArrayList<Fattura>());
+		setListaFatture2(new ArrayList<Fattura>());
 	}
 	
-	public Fattura richiestaFatturaConCodice(String codice1){
+	public Fattura richiestaFatturaConCodice(String codice){
 		
 		System.out.println("Entrato");
-		Response response = invocazione.richiestaFatturaConCodice(codice1)
+		Response response = invocazione.richiestaFatturaConCodice(codice)
                                        .invoke();
 		fattura= response.readEntity(Fattura.class);
 		System.out.println(fattura.getImporto());
@@ -60,14 +66,18 @@ public class FatturaController {
 		return listaFatture;
 	}
 	
-	public List<Fattura> richiestaFattureDiUnPeriodo(@QueryParam("dataInizio")String dataInizio,
-			                                         @QueryParam("dataFine") String dataFine){
+	public List<Fattura> richiestaFattureDiUnPeriodo(@QueryParam("dataInizio")Date dataInizio,
+			                                         @QueryParam("dataFine") Date dataFine){
 		
-		Response response= invocazione.richiestaFattureDiUnPeriodo(dataInizio, dataFine)
+		DateFormat df = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+		String data_Inizio = df.format(dataInizio);
+		String data_Fine = df.format(dataFine);
+				
+		Response response= invocazione.richiestaFattureDiUnPeriodo(data_Inizio, data_Fine)
 				   .invoke();
 		
-		listaFatture= response.readEntity(new GenericType<List<Fattura>>(){});
-		return listaFatture;
+		listaFatture2= response.readEntity(new GenericType<List<Fattura>>(){});
+		return listaFatture2;
 	}
 
 	public String getCodice() {
@@ -92,6 +102,14 @@ public class FatturaController {
 
 	public void setFattura(Fattura fattura) {
 		this.fattura = fattura;
+	}
+
+	public List<Fattura> getListaFatture2() {
+		return listaFatture2;
+	}
+
+	public void setListaFatture2(List<Fattura> listaFatture2) {
+		this.listaFatture2 = listaFatture2;
 	}
 	
 }
