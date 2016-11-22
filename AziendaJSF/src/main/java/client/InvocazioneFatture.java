@@ -26,11 +26,10 @@ public class InvocazioneFatture extends Invocazione{
 		return targetFatture.request().buildGet();
 	}
 	
-	public Invocation richiestaFattureDiUnPeriodo(String data1, String data2){
+	public Invocation richiestaFattureDiUnPeriodo(String dataInizio, String dataFine){
 		
-		return targetFatture.path("/periodo")
-				            .queryParam("dataI", data1)
-				            .queryParam("dataF", data2)
+		return targetFatture.queryParam("dataInizio", dataInizio)
+				            .queryParam("dataFine", dataFine)
 				            .request()
 				            .buildGet();
 	}
