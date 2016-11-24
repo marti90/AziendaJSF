@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-11-22T22:50:09 -->
+<!-- 2016-11-23T15:55:25 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="elencoBuste" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b3192bd2-62ba-408f-8f6c-048849fbc037">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<subDataset name="Dataset1" uuid="912dcf33-df37-4642-896d-e28ee89a5a13">
@@ -8,12 +8,11 @@
 			<![CDATA[]]>
 		</queryString>
 	</subDataset>
-	<subDataset name="DatasetBuste" uuid="fdf5d5cd-9fa5-4512-abdb-984b64cff341">
-		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-		<queryString>
-			<![CDATA[]]>
-		</queryString>
-	</subDataset>
+	<parameter name="codiceBusta" class="java.math.BigDecimal">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+	</parameter>
+	<parameter name="dataEmissione" class="java.util.Date"/>
+	<parameter name="importo" class="java.lang.Double"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -54,7 +53,7 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="256" splitType="Stretch"/>
+		<band height="291" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
 		<band height="125" splitType="Stretch"/>

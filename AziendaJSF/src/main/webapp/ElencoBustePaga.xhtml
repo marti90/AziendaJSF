@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="layout/templateAdmin.xhtml">
+<ui:define name="content">
+
+<h:head>
+<title>Elenco BustePaga</title>
+</h:head>
+
+<h:body>
+
+<h:form id="form">
+   <p:growl id="msgs" showDetail="true"/>
+ 
+   <p:dataTable id="bustaPaga" var="busta" value="#{bustaPagaController.ottieniTutteBustePaga()}" style="margin-bottom:20px">
+       
+       <p:column headerText="Codice Busta Paga:">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{busta.codiceBusta}" /></f:facet>
+               <f:facet name="input"><p:inputText id="modelInput" value="#{busta.codiceBusta}" style="width:100%" label="Codice Busta Paga"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Data Emissione:">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{busta.dataEmissione}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{busta.dataEmissione}" style="width:100%" label="Data Emissione"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+ 
+       <p:column headerText="Importo:">
+           <p:cellEditor>
+               <f:facet name="output"><h:outputText value="#{busta.importo}" /></f:facet>
+               <f:facet name="input"><p:inputText value="#{busta.importo}" style="width:100%" label="Importo"/></f:facet>
+           </p:cellEditor>
+       </p:column>
+       
+   </p:dataTable>
+ 
+</h:form>
+</h:body>
+</ui:define>
+</ui:composition>
+</html>
